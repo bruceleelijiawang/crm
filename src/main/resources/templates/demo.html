@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-cmn-Hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<!--BootStarp4.0网址：http://bs4.ntp.org.cn/-->
+
+		<meta charset="utf-8">
+
+		<title>Thymeleaf products</title>
+
+		<style>
+
+		</style>
+	</head>
+	<body style="margin: 0px;">
+		<!-- 引入头 -->
+		<div th:replace="~{header::header}"></div>
+		<div style="height: 500px;">Main Content</div>
+		<div th:replace="~{footer::footer}"></div>
+		<!-- 引入尾 -->
+		
+	</body>
+</html>
+<!-- 100页面问题：
+	1.每个页面都要写头和尾
+	2.把头和为都换了
+	3.详情页面，登陆注册页，主模板，
+
+ -->>

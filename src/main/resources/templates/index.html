@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-cmn-Hans" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<!--BootStarp4.0网址：http://bs4.ntp.org.cn/-->
+
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+
+		<link rel="shortcut icon" href="#">
+		<link rel="stylesheet" href="/css/test.css" th:href="@{/css/test.css}">
+		<script src="js/jquery-3.4.1.js"></script>
+		<script src="js/add.js"></script>
+		<!-- 页面标题 -->
+		<title>Thymeleaf products</title>
+
+		<!-- 内部样式 -->
+		<style>
+
+		</style>
+	</head>
+	<body>
+				<h3 align="center" th:text=${msg}>hell products</h3>
+				<hr color="blue">
+			
+				<div class="one" style="text-align: center;">
+				
+  				<input type="text"  class="name"  placeholder="产品名称"  style="width: 50%;"><br>
+  				<input type="text"  class="price" placeholder="产品价格" style="width: 50%;"><br>
+  				<button type="submit" class="tianjia"  style="width: 30%;"> 添	加</button>
+  				
+  				
+				</div>
+				<div class="kuang "  style="width: 100px;height: 50px;color: blue; ">
+				<input type="text"  class="xiugainame"  placeholder="产品名称"  style="width: 100%;"><br>
+				<input type="text"  class="xiugaiprice" placeholder="产品价格" style="width: 100%;"><br>
+				<button type="submit" class="querenxiugai"  style="width: 30%;"> 确定</button>
+				</div>
+		<table border="1" style="margin: auto">
+			<tr>
+				<th>ID</th>
+				<th>产品名</th>
+				<th>单价</th>
+				<th>操作</th>
+			</tr>
+			<tr th:each="product : ${products}">
+				<td th:text="${product.id}"  class="id">1</td>
+				<td th:text="${product.name}" class="namee">被子</td>
+				<td th:text="${#numbers.formatDecimal(product.price, 1, 2)}" class="pricee">55.2</td>
+				<td colspan="2">
+					
+					<button class="xiugai"   type="button"  href="#">修改</button>
+					<button class="shanchu"  type="button"  href="#">删除</button>
+					
+				</td>
+			
+			</tr>
+
+			
+		</table>
+		<nav aria-label="Page navigation example">
+			<ul class="pagecoco" style="margin: auto;">
+				<li class="pagegro" ><a class="page_item" href="#" id="before">上一页</a></li>
+				<li class="pagegro" ><a class="page_item" href="#" id="next">下一页</a></li>
+			</ul>
+		
+		</nav>
+		
+		
+	</body>
+</html>

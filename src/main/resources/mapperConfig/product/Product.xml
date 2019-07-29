@@ -11,6 +11,19 @@
 		values
 		(#{name},#{price})
 	</insert>
-
-
+	<!-- 修改一条记录  update t_product set name="bruce",price=500.00 where id=1;
+		<update id="update" parameterType="ProductBean" keyProperty="id"
+		useGeneratedKeys="true">
+		update t_product set 
+		name = #{name},
+		price = #{price} where id = (#{id});
+	</update>
+	
+	
+	
+	 -->
+	
+	
+	
+	
 </mapper> 
