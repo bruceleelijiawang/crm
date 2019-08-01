@@ -1,35 +1,35 @@
-package com.addidas.project.crmqpp.service.protype;
+package com.addidas.project.crmqpp.service.impl;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.addidas.project.crmqpp.Dao.ProductDao;
 import com.addidas.project.crmqpp.entity.Product;
-import com.addidas.project.crmqpp.service.impl.IProductService;
+import com.addidas.project.crmqpp.service.protype.IProductService;
+
+
+
 @Service
 public class ProductServiceImpl implements IProductService {
 	@Autowired
 	private ProductDao productDao;
+	@Autowired 
+	private RedisTemplate<Object, Object> rt;
 	
-
-
 	@Override
 	public void createProduct(Product product) {
 		productDao.save(product);
-		
 	}
 
 	@Override
-	public List<Product> getAllProducts() {
-		
+	@Cacheable(value="chensdasd")
+	public List<Product> getAllProductService() {
 		return productDao.findAll();
 	}
 
-	@Override
-	public void updateProduct(int id, String name, double price) {
-		productDao.update(id, name, price);
-		
-	}
 }

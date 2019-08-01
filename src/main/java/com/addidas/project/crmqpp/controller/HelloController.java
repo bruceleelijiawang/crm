@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.addidas.project.crmqpp.Dao.ProductDao;
 import com.addidas.project.crmqpp.entity.Product;
-import com.addidas.project.crmqpp.service.impl.IProductService;
+import com.addidas.project.crmqpp.service.protype.IProductService;
 import com.alibaba.fastjson.JSONObject;
 
 
@@ -41,7 +41,7 @@ public class HelloController {
 	public ModelAndView index(){
 		
 		ModelAndView mv = new ModelAndView();
-		List<Product> products = prodService.getAllProducts();
+		List<Product> products = prodService.getAllProductService();
 		mv.addObject("msg", "大中华");
 		mv.addObject("products", products);
 		mv.setViewName("index");
